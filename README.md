@@ -7,6 +7,7 @@ nodemailer,
 jsonwebtoken,
 mysql,
 express-validator,
-dotenv
+dotenv,
+nodemon
 
 Here Ethereal Email is used for email for checking the module working.
