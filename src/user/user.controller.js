@@ -132,38 +132,6 @@ module.exports = {
             return res.status(400).json({error: "bad_request",error_description: 'Something went wrong'});
         }
     },
-    // logout: async(req, res, next) => {
-    //     try{
-    //         const token = req.headers["authorization"];
-    //         token = null;
-    //         res.status(200).send({token: token });
-    //     }catch(error){
-    //         res.status(500).json({message: 'Something went wrong',
-    //         error: error});
-    //     }
-    // },
-    updateUserProfile: async(req, res, next) => {
-        try{
-            let data = {id: req.userId, profile_image: req.file.filename, first_name: req.body.first_name, last_name: req.body.last_name};
-            let result = await services.updateUserProfile(data);
-            if(result.affectedRows){
-                return res.status(200).json({message: "Profile uploaded successfully"});
-            }
-        }catch(error){
-            return res.status(400).json({error: "bad_request",error_description: 'Something went wrong'});
-        }
-    },
-    showUserDetails: async(req, res, next) => {
-        try{
-            let data = {id: req.userId};
-            let result = await services.showUserDetails(data);
-            if(result){
-                return res.status(200).send(result);
-            }
-        }catch(error){
-            return res.status(400).json({error: "bad_request",error_description: 'Something went wrong'});
-        }
-    },
     resetPassword: async(req, res, next) => {
         try{
             let {email} = req.body;
